@@ -1,19 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Combobox } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import LoadingSpinner from './loading-spinner';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function RepositorySelector ({availableRepositories, selectedRepository, setSelectedRepository}) {
+export default function RepositorySelector ({selectedRepository, setSelectedRepository}) {
+  const [loading, setLoading] = useState(true);
+  const [indexData, setIndexData] = useState(null);
   const [repositoryQuery, setRepositoryQuery] = useState('')
+
+  useEffect(() => {
+    console.log(useEffect)
+    const fetchRepositoryData = async () => {
+      const bsDataRepositoryIndex = await (
+        await fetch(
+          'https://api.codetabs.com/v1/proxy/?quest=https://github.com/BSData/gallery/releases/latest/download/bsdata.catpkg-gallery.json'
+        )
+      ).json()
+      console.log(bsDataRepositoryIndex)
+      setIndexData(bsDataRepositoryIndex);
+      setLoading(false);
+    };
+    fetchRepositoryData();
+  }, []);
+
+  if (loading) {
+    return ( <LoadingSpinner/> );
+  }
 
   // TODO(@22a): account for .name as well, and be forgiving of spaces in both directions
   const filteredRepositories =
     repositoryQuery === ''
-      ? availableRepositories
-      : availableRepositories.filter((repository) => {
+      ? indexData.repositories
+      : indexData.repositories.filter((repository) => {
         return repository.description.toLowerCase().includes(repositoryQuery.toLowerCase())
       })
 
