@@ -2,6 +2,7 @@ import { createContext, useState } from 'react';
 import DarkModeToggle from './components/dark-mode-toggle';
 import RepositorySelector from './components/repository-selector';
 import ArmySelector from './components/army-selector';
+import ArmyDetails from './components/army-details';
 
 // const SUPPORTED_BATTLESCRIBE_VERSION = '2.03'
 
@@ -32,6 +33,12 @@ function App() {
           selectedRepository={selectedRepository}
           selectedArmy={selectedArmy}
           setSelectedArmy={setSelectedArmy}
+        />
+      }
+
+      {selectedArmy &&
+        <ArmyDetails
+          selectedArmy={selectedArmy}
         />
       }
     </div>
