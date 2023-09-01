@@ -1,3 +1,6 @@
+import nightwind from 'nightwind';
+import tailwindForms from '@tailwindcss/forms'
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -8,7 +11,8 @@ export default {
     extend: {},
   },
   plugins: [
-    import('@tailwindcss/forms'),
+    tailwindForms,
+    nightwind,
   ],
+  darkMode: 'class',
 }
-
