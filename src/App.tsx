@@ -19,14 +19,9 @@ export default function App() {
   return (
     <GameSystemContext.Provider value={[gameSystem, setGameSystemAndResetCatalogue]}>
       <CatalogueContext.Provider value={[catalogue, setCatlogue]}>
-        <div className="mx-auto mt-6 max-w-7xl px-4 sm:px-6 lg:px-8 p-8 bg-slate-200 rounded-lg flex-col space-y-6">
-          <div className='flex space-x-2'>
-            <label className="w-32 block text-sm font-medium leading-6 text-gray-900">
-              Dark mode:
-            </label>
-            <DarkModeToggle />
-          </div>
+        <DarkModeToggle />
 
+        <div className="mx-auto mt-6 max-w-7xl px-4 sm:px-6 lg:px-8 p-8 bg-slate-200 rounded-lg flex-col space-y-6">
           <GameSystemSelector
             shouldCache={true}
             autoSelectDefault='wh40k-10e'

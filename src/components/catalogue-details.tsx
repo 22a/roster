@@ -65,7 +65,7 @@ export default function CatalogueDetails ({shouldCache = false}) {
             {catalogueData.id}
           </span>
           <span>
-            (we console.logged the cat, boyo):
+            (we console.logged the cat, boyo)
           </span>
         </div>
       )}
