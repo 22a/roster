@@ -1,48 +1,51 @@
-import { createContext, useState } from 'react';
+import { useState } from 'react';
 import DarkModeToggle from './components/dark-mode-toggle';
-import RepositorySelector from './components/repository-selector';
-import ArmySelector from './components/army-selector';
-import ArmyDetails from './components/army-details';
+import { GameSystemContext, CatalogueContext } from './Context';
+import GameSystemSelector from './components/game-system-selector';
+import CatalogueSelector from './components/catalogue-selector';
+import CatalogueDetails from './components/catalogue-details';
 
+// TODO(@22a): think about guarding against different bs versions across schemas + repo contents
 // const SUPPORTED_BATTLESCRIBE_VERSION = '2.03'
 
-function App() {
-  const [selectedRepository, setSelectedRepository] = useState(null)
-  const [selectedArmy, setSelectedArmy] = useState(null);
-  const setSelectedRepositoryAndResetArmy = (...args) => {
-    setSelectedRepository(...args);
-    setSelectedArmy(null);
+export default function App() {
+  const [gameSystem, setGameSystem] = useState(null)
+  const [catalogue, setCatlogue] = useState(null);
+  const setGameSystemAndResetCatalogue = (...args) => {
+    setGameSystem(...args);
+    setCatlogue(null);
   }
 
   return (
-    <div className="mx-auto mt-6 max-w-7xl px-4 sm:px-6 lg:px-8 p-8 bg-slate-200 rounded-lg flex-col space-y-6">
-      <div className='flex space-x-2'>
-        <label className="w-32 block text-sm font-medium leading-6 text-gray-900">
-          Dark mode:
-        </label>
-        <DarkModeToggle />
-      </div>
+    <GameSystemContext.Provider value={[gameSystem, setGameSystemAndResetCatalogue]}>
+      <CatalogueContext.Provider value={[catalogue, setCatlogue]}>
+        <div className="mx-auto mt-6 max-w-7xl px-4 sm:px-6 lg:px-8 p-8 bg-slate-200 rounded-lg flex-col space-y-6">
+          <div className='flex space-x-2'>
+            <label className="w-32 block text-sm font-medium leading-6 text-gray-900">
+              Dark mode:
+            </label>
+            <DarkModeToggle />
+          </div>
 
-      <RepositorySelector
-        selectedRepository={selectedRepository}
-        setSelectedRepository={setSelectedRepositoryAndResetArmy}
-      />
+          <GameSystemSelector
+            shouldCache={true}
+            autoSelectDefault='wh40k-10e'
+          />
 
-      {selectedRepository &&
-        <ArmySelector
-          selectedRepository={selectedRepository}
-          selectedArmy={selectedArmy}
-          setSelectedArmy={setSelectedArmy}
-        />
-      }
+          {gameSystem &&
+            <CatalogueSelector
+              shouldCache={true}
+              autoSelectDefault='Aeldari - Aeldari Library'
+            />
+          }
 
-      {selectedArmy &&
-        <ArmyDetails
-          selectedArmy={selectedArmy}
-        />
-      }
-    </div>
+          {catalogue &&
+            <CatalogueDetails
+              shouldCache={true}
+            />
+          }
+        </div>
+      </CatalogueContext.Provider>
+    </GameSystemContext.Provider>
   )
 }
-
-export default App
