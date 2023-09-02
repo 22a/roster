@@ -37,7 +37,7 @@ export default function GameSystemSelector ({shouldCache = false, autoSelectDefa
       if (autoSelectDefault) {
         const defaultSelection = bsDataRepositoryIndex.repositories.find((repo) => repo.name === autoSelectDefault)
         if (defaultSelection) {
-          setGameSystem(defaultSelection)
+          setGameSystem(defaultSelection);
         }
       }
       setLoading(false);

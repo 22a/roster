@@ -53,9 +53,12 @@ export default function CatalogueSelector ({shouldCache = false, autoSelectDefau
     fetchRepositoryData();
   }, [gameSystem.repositoryUrl]);
 
+  if (loading) {
+    return (<LoadingSpinner className="ml-40"/>)
+  }
+
   return (
     <div>
-      {loading && <LoadingSpinner className="ml-40"/>}
       {gameSystemRepositoryData && (
         <div className="ml-32 pl-2 flex space-x-2 mb-4 -mt-2">
           <a href={gameSystemRepositoryData.githubUrl} target="_blank" rel="noreferrer" className="monospace underline text-blue-400">

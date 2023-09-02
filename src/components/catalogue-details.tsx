@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { GameSystemContext, CatalogueContext } from '../context';
+import { CatalogueContext } from '../context';
 import LoadingSpinner from './loading-spinner';
 import { parseXML } from '../lib/schema-adapter'
 
@@ -23,7 +23,7 @@ export default function CatalogueDetails ({shouldCache = false}) {
             catData = parsedCache;
             console.log('loading catData from localStorage cache', catData)
           } else {
-            console.log('INVALIDATING CACHE: existing catData localStorage cache does not match selected gameSystem', parsedCache.githubUrl, catalogue.githubUrl)
+            console.log('INVALIDATING CACHE: existing catData localStorage cache does not match selected gameSystem', parsedCache.id, catalogue.id)
           }
         }
         if (localStorageCache && localStorageCache.githubUrl === catalogue.githubUrl) {

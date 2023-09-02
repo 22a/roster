@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {},
+    nightwind: {
+      transitionDuration: false, // default '300ms'
+    },
   },
   plugins: [
     tailwindForms,
