@@ -4,10 +4,7 @@
   "definitions": {
     "category": {
       "type": "object",
-      "required": [
-        "id",
-        "name"
-      ],
+      "required": ["id", "name"],
       "properties": {
         "comment": {
           "type": "string"
@@ -38,10 +35,7 @@
           "type": "string"
         },
         "page": {
-          "type": [
-            "number",
-            "string"
-          ]
+          "type": ["number", "string"]
         },
         "profiles": {
           "$ref": "#/definitions/profiles"
@@ -58,10 +52,7 @@
     },
     "categoryLink": {
       "type": "object",
-      "required": [
-        "id",
-        "targetId"
-      ],
+      "required": ["id", "targetId"],
       "properties": {
         "comment": {
           "type": "string"
@@ -86,10 +77,7 @@
           "type": "string"
         },
         "page": {
-          "type": [
-            "number",
-            "string"
-          ]
+          "type": ["number", "string"]
         },
         "primary": {
           "type": "boolean",
@@ -117,10 +105,7 @@
     },
     "characteristicType": {
       "type": "object",
-      "required": [
-        "id",
-        "name"
-      ],
+      "required": ["id", "name"],
       "properties": {
         "comment": {
           "type": "string"
@@ -152,10 +137,7 @@
           "type": "string",
           "anyOf": [
             {
-              "enum": [
-                "selections",
-                "forces"
-              ],
+              "enum": ["selections", "forces"],
               "description": "Count matching selections/forces"
             },
             {
@@ -202,10 +184,7 @@
           "type": "string"
         },
         "value": {
-          "type": [
-            "string",
-            "number"
-          ]
+          "type": ["string", "number"]
         }
       },
       "additionalProperties": false,
@@ -228,15 +207,10 @@
           }
         },
         {
-          "required": [
-            "childId"
-          ],
+          "required": ["childId"],
           "properties": {
             "type": {
-              "enum": [
-                "instanceOf",
-                "notInstanceOf"
-              ]
+              "enum": ["instanceOf", "notInstanceOf"]
             },
             "percentValue": {
               "const": false,
@@ -259,10 +233,7 @@
           "$ref": "#/definitions/conditionGroups"
         },
         "type": {
-          "enum": [
-            "and",
-            "or"
-          ]
+          "enum": ["and", "or"]
         }
       },
       "additionalProperties": false
@@ -281,11 +252,7 @@
     },
     "constraint": {
       "type": "object",
-      "required": [
-        "field",
-        "id",
-        "scope"
-      ],
+      "required": ["field", "id", "scope"],
       "properties": {
         "comment": {
           "type": "string"
@@ -293,10 +260,7 @@
         "field": {
           "anyOf": [
             {
-              "enum": [
-                "selections",
-                "forces"
-              ]
+              "enum": ["selections", "forces"]
             },
             {
               "type": "string",
@@ -343,10 +307,7 @@
           "description": "This field is mysterious and complicated."
         },
         "type": {
-          "enum": [
-            "min",
-            "max"
-          ]
+          "enum": ["min", "max"]
         },
         "value": {
           "type": "number"
@@ -364,11 +325,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": [
-          "name",
-          "typeId",
-          "value"
-        ],
+        "required": ["name", "typeId", "value"],
         "properties": {
           "name": {
             "type": "string"
@@ -389,11 +346,7 @@
       "description": "Types of cost this game system uses",
       "items": {
         "type": "object",
-        "required": [
-          "defaultCostLimit",
-          "id",
-          "name"
-        ],
+        "required": ["defaultCostLimit", "id", "name"],
         "properties": {
           "comment": {
             "type": "string"
@@ -417,10 +370,7 @@
     },
     "forceEntry": {
       "type": "object",
-      "required": [
-        "id",
-        "name"
-      ],
+      "required": ["id", "name"],
       "properties": {
         "categoryLinks": {
           "$ref": "#/definitions/categoryLinks"
@@ -464,10 +414,7 @@
     },
     "infoLink": {
       "type": "object",
-      "required": [
-        "id",
-        "targetId"
-      ],
+      "required": ["id", "targetId"],
       "properties": {
         "categoryLinks": {
           "$ref": "#/definitions/categoryLinks"
@@ -499,10 +446,7 @@
           "type": "string"
         },
         "page": {
-          "type": [
-            "number",
-            "string"
-          ]
+          "type": ["number", "string"]
         },
         "publicationId": {
           "type": "string",
@@ -513,11 +457,7 @@
           "description": "References a rule, profile or infoGroup"
         },
         "type": {
-          "enum": [
-            "rule",
-            "profile",
-            "infoGroup"
-          ]
+          "enum": ["rule", "profile", "infoGroup"]
         }
       },
       "additionalProperties": false
@@ -530,9 +470,7 @@
     },
     "infoGroup": {
       "type": "object",
-      "required": [
-        "id"
-      ],
+      "required": ["id"],
       "properties": {
         "hidden": {
           "type": "boolean",
@@ -557,10 +495,7 @@
           "type": "string"
         },
         "page": {
-          "type": [
-            "number",
-            "string"
-          ]
+          "type": ["number", "string"]
         },
         "profiles": {
           "$ref": "#/definitions/profiles"
@@ -583,11 +518,7 @@
     },
     "modifier": {
       "type": "object",
-      "required": [
-        "field",
-        "type",
-        "value"
-      ],
+      "required": ["field", "type", "value"],
       "properties": {
         "id": {
           "type": "string"
@@ -611,11 +542,7 @@
           "type": "string"
         },
         "value": {
-          "type": [
-            "string",
-            "number",
-            "boolean"
-          ]
+          "type": ["string", "number", "boolean"]
         }
       },
       "additionalProperties": false,
@@ -623,11 +550,7 @@
         {
           "properties": {
             "type": {
-              "enum": [
-                "set",
-                "decrement",
-                "increment"
-              ]
+              "enum": ["set", "decrement", "increment"]
             },
             "field": {
               "description": "A field on the current entry such as 'hidden' or a cost id to modify"
@@ -637,9 +560,7 @@
         {
           "properties": {
             "type": {
-              "enum": [
-                "append"
-              ]
+              "enum": ["append"]
             },
             "field": {
               "description": "A field on the current entry such as 'name' to append the 'value' to"
@@ -649,12 +570,7 @@
         {
           "properties": {
             "type": {
-              "enum": [
-                "add",
-                "remove",
-                "set-primary",
-                "unset-primary"
-              ]
+              "enum": ["add", "remove", "set-primary", "unset-primary"]
             },
             "field": {
               "const": "category"
@@ -707,10 +623,7 @@
       "description": "profile types this game system uses",
       "items": {
         "type": "object",
-        "required": [
-          "id",
-          "name"
-        ],
+        "required": ["id", "name"],
         "properties": {
           "comment": {
             "type": "string"
@@ -734,10 +647,7 @@
     },
     "publication": {
       "type": "object",
-      "required": [
-        "id",
-        "name"
-      ],
+      "required": ["id", "name"],
       "properties": {
         "comment": {
           "type": "string"
@@ -765,20 +675,13 @@
     },
     "profile": {
       "type": "object",
-      "required": [
-        "characteristics",
-        "id",
-        "typeId"
-      ],
+      "required": ["characteristics", "id", "typeId"],
       "properties": {
         "characteristics": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": [
-              "name",
-              "typeId"
-            ],
+            "required": ["name", "typeId"],
             "properties": {
               "#text": {
                 "type": "string",
@@ -815,10 +718,7 @@
           "type": "string"
         },
         "page": {
-          "type": [
-            "number",
-            "string"
-          ]
+          "type": ["number", "string"]
         },
         "publicationId": {
           "type": "string",
@@ -842,11 +742,7 @@
     },
     "repeat": {
       "type": "object",
-      "required": [
-        "field",
-        "scope",
-        "value"
-      ],
+      "required": ["field", "scope", "value"],
       "properties": {
         "id": {
           "type": "string"
@@ -861,10 +757,7 @@
         "field": {
           "anyOf": [
             {
-              "enum": [
-                "selections",
-                "forces"
-              ]
+              "enum": ["selections", "forces"]
             },
             {
               "type": "string",
@@ -929,10 +822,7 @@
     },
     "rule": {
       "type": "object",
-      "required": [
-        "id",
-        "name"
-      ],
+      "required": ["id", "name"],
       "properties": {
         "comment": {
           "type": "string"
@@ -957,10 +847,7 @@
           "type": "string"
         },
         "page": {
-          "type": [
-            "number",
-            "string"
-          ]
+          "type": ["number", "string"]
         },
         "publicationId": {
           "type": "string",
@@ -977,11 +864,7 @@
     },
     "selectionEntry": {
       "type": "object",
-      "required": [
-        "id",
-        "name",
-        "type"
-      ],
+      "required": ["id", "name", "type"],
       "properties": {
         "categoryLinks": {
           "$ref": "#/definitions/categoryLinks"
@@ -1025,10 +908,7 @@
           "type": "string"
         },
         "page": {
-          "type": [
-            "number",
-            "string"
-          ]
+          "type": ["number", "string"]
         },
         "profiles": {
           "$ref": "#/definitions/profiles"
@@ -1060,10 +940,7 @@
     },
     "selectionEntryGroup": {
       "type": "object",
-      "required": [
-        "id",
-        "name"
-      ],
+      "required": ["id", "name"],
       "properties": {
         "categoryLinks": {
           "$ref": "#/definitions/categoryLinks"
@@ -1107,10 +984,7 @@
           "type": "string"
         },
         "page": {
-          "type": [
-            "number",
-            "string"
-          ]
+          "type": ["number", "string"]
         },
         "profiles": {
           "$ref": "#/definitions/profiles"
@@ -1139,10 +1013,7 @@
     },
     "selectionEntryLink": {
       "type": "object",
-      "required": [
-        "id",
-        "targetId"
-      ],
+      "required": ["id", "targetId"],
       "properties": {
         "categoryLinks": {
           "$ref": "#/definitions/categoryLinks"
@@ -1186,10 +1057,7 @@
           "type": "string"
         },
         "page": {
-          "type": [
-            "number",
-            "string"
-          ]
+          "type": ["number", "string"]
         },
         "profiles": {
           "$ref": "#/definitions/profiles"
@@ -1212,10 +1080,7 @@
           "description": "References a selectionEntry, selectionEntryGroup or another selectionEntryLink"
         },
         "type": {
-          "enum": [
-            "selectionEntry",
-            "selectionEntryGroup"
-          ]
+          "enum": ["selectionEntry", "selectionEntryGroup"]
         }
       },
       "additionalProperties": false

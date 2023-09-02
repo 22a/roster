@@ -2,13 +2,7 @@
   "title": "BSD Game System",
   "description": "A game system file, data about a system for use with any number of roster building tools",
   "type": "object",
-  "required": [
-    "id",
-    "name",
-    "profileTypes",
-    "revision",
-    "type"
-  ],
+  "required": ["id", "name", "profileTypes", "revision", "type"],
   "properties": {
     "authorContact": {
       "type": "string",

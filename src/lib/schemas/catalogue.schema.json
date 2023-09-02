@@ -2,13 +2,7 @@
   "title": "BSD Catalogue",
   "description": "A catalogue file, data about a catalogue within a game system for use with any number of roster building tools",
   "type": "object",
-  "required": [
-    "gameSystemId",
-    "id",
-    "name",
-    "revision",
-    "type"
-  ],
+  "required": ["gameSystemId", "id", "name", "revision", "type"],
   "properties": {
     "authorContact": {
       "type": "string",
@@ -30,11 +24,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": [
-          "id",
-          "name",
-          "targetId"
-        ],
+        "required": ["id", "name", "targetId"],
         "properties": {
           "id": {
             "type": "string"
