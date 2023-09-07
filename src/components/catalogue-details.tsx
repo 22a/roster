@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { CatalogueContext } from '../context';
+import { CatalogueContext } from '../Context';
 import LoadingSpinner from './loading-spinner';
 import { parseXML } from '../lib/schema-adapter';
 

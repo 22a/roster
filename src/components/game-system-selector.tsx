@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import LoadingSpinner from './loading-spinner';
 import Selectbox from './selectbox';
-import { GameSystemContext } from '../context';
+import { GameSystemContext } from '../Context';
 
 const localStorageCacheKey = 'roster:bsDataRepositoryIndex';
 

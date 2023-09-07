@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { GameSystemContext, CatalogueContext } from '../context';
+import { GameSystemContext, CatalogueContext } from '../Context';
 import LoadingSpinner from './loading-spinner';
 import Selectbox from './selectbox';
 
