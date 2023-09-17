@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import DarkModeToggle from './components/dark-mode-toggle';
-import { GameSystemContext, CatalogueContext } from './Context';
+import { GameSystemMetaContext, CatalogueMetaContext } from './Context';
 import GameSystemSelector from './components/game-system-selector';
 import CatalogueSelector from './components/catalogue-selector';
 import CatalogueDetails from './components/catalogue-details';
@@ -9,18 +9,18 @@ import CatalogueDetails from './components/catalogue-details';
 // const SUPPORTED_BATTLESCRIBE_VERSION = '2.03'
 
 export default function App() {
-  const [gameSystem, setGameSystem] = useState(null);
-  const [catalogue, setCatlogue] = useState(null);
-  const setGameSystemAndResetCatalogue = (...args) => {
-    setGameSystem(...args);
-    setCatlogue(null);
+  const [gameSystemMeta, setGameSystemMeta] = useState(null);
+  const [catalogueMeta, setCatlogueMeta] = useState(null);
+  const setGameSystemMetaAndResetCatalogueMeta = (newGameSystemMeta) => {
+    setGameSystemMeta(newGameSystemMeta);
+    setCatlogueMeta(null);
   };
 
   return (
-    <GameSystemContext.Provider
-      value={[gameSystem, setGameSystemAndResetCatalogue]}
+    <GameSystemMetaContext.Provider
+      value={[gameSystemMeta, setGameSystemMetaAndResetCatalogueMeta]}
     >
-      <CatalogueContext.Provider value={[catalogue, setCatlogue]}>
+      <CatalogueMetaContext.Provider value={[catalogueMeta, setCatlogueMeta]}>
         <DarkModeToggle />
 
         <div className="mx-auto mt-6 max-w-7xl px-4 sm:px-6 lg:px-8 p-8 bg-slate-200 rounded-lg flex-col space-y-6">
@@ -29,16 +29,16 @@ export default function App() {
             autoSelectDefault="wh40k-10e"
           />
 
-          {gameSystem && (
+          {gameSystemMeta && (
             <CatalogueSelector
               shouldCache={true}
               autoSelectDefault="Aeldari - Aeldari Library"
             />
           )}
 
-          {catalogue && <CatalogueDetails shouldCache={true} />}
+          {catalogueMeta && <CatalogueDetails shouldCache={true} />}
         </div>
-      </CatalogueContext.Provider>
-    </GameSystemContext.Provider>
+      </CatalogueMetaContext.Provider>
+    </GameSystemMetaContext.Provider>
   );
 }

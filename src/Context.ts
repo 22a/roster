@@ -1,4 +1,4 @@
 import { createContext } from 'react';
 
-export const GameSystemContext = createContext([]);
-export const CatalogueContext = createContext([]);
+export const GameSystemMetaContext = createContext([]);
+export const CatalogueMetaContext = createContext([]);

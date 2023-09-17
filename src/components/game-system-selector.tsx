@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import LoadingSpinner from './loading-spinner';
 import Selectbox from './selectbox';
-import { GameSystemContext } from '../Context';
+import { GameSystemMetaContext } from '../Context';
 
 const localStorageCacheKey = 'roster:bsDataRepositoryIndex';
 
@@ -11,7 +11,7 @@ export default function GameSystemSelector({
 }) {
   const [loading, setLoading] = useState(true);
   const [indexData, setIndexData] = useState(null);
-  const [gameSystem, setGameSystem] = useContext(GameSystemContext);
+  const [gameSystemMeta, setGameSystemMeta] = useContext(GameSystemMetaContext);
 
   useEffect(() => {
     const fetchRepositoryData = async () => {
@@ -55,7 +55,7 @@ export default function GameSystemSelector({
           (repo) => repo.name === autoSelectDefault,
         );
         if (defaultSelection) {
-          setGameSystem(defaultSelection);
+          setGameSystemMeta(defaultSelection);
         }
       }
       setLoading(false);
@@ -75,8 +75,8 @@ export default function GameSystemSelector({
       </label>
       <Selectbox
         items={indexData?.repositories}
-        selectedItem={gameSystem}
-        onChange={setGameSystem}
+        selectedItem={gameSystemMeta}
+        onChange={setGameSystemMeta}
         keyKey="name"
         labelKey="description"
         filterKeys={['name', 'description']}
