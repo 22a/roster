@@ -1,9 +1,9 @@
-import Button from 'react-bootstrap/Button'
-
 export default function AddButton({ currentRoster, categories }) {
   return (
     <>
-      <Button variant="outline-dark">Dark</Button>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Button
+      </button>
     </>
-  )
+  );
 }
