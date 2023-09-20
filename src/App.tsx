@@ -35,9 +35,8 @@ export default function App() {
               autoSelectDefault="Aeldari - Aeldari Library"
             />
           )}
-
-          {catalogue && <CatalogueDetails shouldCache={true} />}
         </div>
+        {catalogue && <CatalogueDetails shouldCache={true} />}
       </CatalogueContext.Provider>
     </GameSystemContext.Provider>
   );

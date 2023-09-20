@@ -1,4 +1,4 @@
-import Category from '../category/category'
+import Category from './category';
 
 export default function CategoryList({ currentRoster, categories }) {
   return (
@@ -7,5 +7,5 @@ export default function CategoryList({ currentRoster, categories }) {
         <Category category={categories}></Category>
       </li>
     </ul>
-  )
+  );
 }
